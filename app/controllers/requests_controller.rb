@@ -1,23 +1,25 @@
-require 'curb'
-require 'json'
+require 'rest_client'
 
 class RequestsController < ApplicationController
+
+  USERNAME = 'soa_reader'
+  PASSWORD = 'sinatra4thew1n'
 
   # ajax request initiated by form
   def create
     type = params[:type]
+    url = "http://#{USERNAME}:#{PASSWORD}@#{params[:url]}"
 
     begin
-      stuff_back = Curl::Easy.send("perform", params[:url]) do |curl|
-        curl.headers['Accept'] = 'application/json'
-        curl.headers['Content-Type'] = 'application/json'
-        curl.headers['Api-Version'] = '2.2'
+
+      if type == 'get'
+        @roar = RestClient.get(url)
+      elsif type == 'post' || type == 'put' || type == 'delete'
+        @roar = RestClient.send(type, url, params[:data])
       end
 
-      @data = stuff_back.body_str
-
-      if (is_json(@data))
-         render :text => @data
+      if (is_json(@roar))
+         render :text => @roar
       else
          render :text => "ROAR. The response must be in json format!"
       end

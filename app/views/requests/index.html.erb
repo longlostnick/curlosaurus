@@ -1,7 +1,7 @@
 <%= form_tag requests_path, :id => 'curlosaurus' do %>
   <p>
     <%= label_tag :url, "Url:" %>
-    <%= text_field_tag :url %>
+    <%= select_tag :prot, %-<option value="http://">http://</option>-.html_safe %><%= text_field_tag :url %>
   </p>
 
   <p>
