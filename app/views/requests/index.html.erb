@@ -1,1 +1,31 @@
-a bunch of shit
+<%= form_tag requests_path, :id => 'curlosaurus' do %>
+  <p>
+    <%= label_tag :url, "Url:" %>
+    <%= text_field_tag :url %>
+  </p>
+
+  <p>
+    <%= label_tag :data, "Data:" %>
+    <%= text_area_tag :data %>
+  </p>
+
+  <p>
+    <%= label_tag :type, "Type:" %>
+    <%= select_tag :type, %-<option value="get">GET</option><option value="post">POST</option><option value="put">PUT</option><option value="delete">DELETE</option>-.html_safe %>
+  </p>
+
+  <p>
+    <%= label_tag :auth, "Basic Auth:" %>
+    <%= check_box_tag :auth %>
+  </p>
+
+  <p>
+    <%= submit_tag "Roar" %>
+  </p>
+<% end %>
+
+<div id="result-holder"></div>
+
+<% content_for :head do %>
+  <%= javascript_include_tag :requests %>
+<% end %>
