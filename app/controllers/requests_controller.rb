@@ -1,34 +1,32 @@
-require 'rest_client'
+require 'json'
+require 'curb'
 
 class RequestsController < ApplicationController
 
-  USERNAME = 'soa_reader'
-  PASSWORD = 'sinatra4thew1n'
-
   # ajax request initiated by form
   def create
-    type = params[:type]
-    url = "http://#{USERNAME}:#{PASSWORD}@#{params[:url]}"
+    roar = Curl::Easy.new(params[:url])
+
+    method = params[:method]
 
     begin
-
-      if type == 'get'
-        @roar = RestClient.get(url)
-      elsif type == 'post' || type == 'put' || type == 'delete'
-        @roar = RestClient.send(type, url, params[:data])
+      if method == 'get'
+        roar.http_get
+      elsif method == 'post' || method == 'put' || method == 'delete'
+        roar.send("http_#{method}", params[:body])
       end
 
-      if (is_json(@roar))
-         render :text => @roar
-      else
-         render :text => "ROAR. The response must be in json format!"
-      end
+      render :text => roar.body_str
     rescue => e
       render :text => e
     end
   end
 
   private
+
+  def add_auth(user, pass)
+    @auth = {:username => user, :password => pass }
+  end
 
   def is_json(json)
     begin

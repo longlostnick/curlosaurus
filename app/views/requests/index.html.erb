@@ -1,17 +1,21 @@
+<% content_for :head do %>
+  <%= javascript_include_tag :requests %>
+<% end %>
+
 <%= form_tag requests_path, :id => 'curlosaurus' do %>
   <p>
     <%= label_tag :url, "Url:" %>
-    <%= select_tag :prot, %-<option value="http://">http://</option>-.html_safe %><%= text_field_tag :url %>
+    <%= text_field_tag :url, nil, :size => "50" %>
   </p>
 
   <p>
-    <%= label_tag :data, "Data:" %>
-    <%= text_area_tag :data %>
+    <%= label_tag :body, "Body:" %>
+    <%= text_area_tag :body, nil, :size => "45x10" %>
   </p>
 
   <p>
-    <%= label_tag :type, "Type:" %>
-    <%= select_tag :type, %-<option value="get">GET</option><option value="post">POST</option><option value="put">PUT</option><option value="delete">DELETE</option>-.html_safe %>
+    <%= label_tag :method, "Method:" %>
+    <%= select_tag :method, %-<option value="get">GET</option><option value="post">POST</option><option value="put">PUT</option><option value="delete">DELETE</option>-.html_safe %>
   </p>
 
   <p>
@@ -19,13 +23,23 @@
     <%= check_box_tag :auth %>
   </p>
 
+  <div id="auth-div">
+
+    <p>
+      <%= label_tag :user, "Username:" %>
+      <%= text_field_tag :user, nil, :size => "30" %>
+    </p>
+
+    <p>
+      <%= label_tag :pass, "Password:" %>
+      <%= text_field_tag :pass, nil, :size => "30" %>
+    </p>
+
+  </div>
+
   <p>
     <%= submit_tag "Roar" %>
   </p>
 <% end %>
 
 <div id="result-holder"></div>
-
-<% content_for :head do %>
-  <%= javascript_include_tag :requests %>
-<% end %>

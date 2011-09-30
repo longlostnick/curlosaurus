@@ -7,14 +7,19 @@ $(document).ready(function() {
       type: 'post',
       data: {
         "url": $('form#curlosaurus #url').val(),
-        "type": $('form#curlosaurus #type').val(),
-        "data": $('form#curlosaurus #data').val()
+        "method": $('form#curlosaurus #method').val(),
+        "body": $('form#curlosaurus #body').val()
       },
       success: function(data) {
-        $('#result-holder').html(data);
+        $('#result-holder').text(data);
       }
     });
 
     return false;
+  });
+
+  $('#auth-div').hide();
+  $('#auth').click(function() {
+    this.checked ? $('#auth-div').show() : $('#auth-div').hide() ;
   });
 });
