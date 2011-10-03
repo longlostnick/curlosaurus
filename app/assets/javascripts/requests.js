@@ -28,16 +28,17 @@ $(document).ready(function() {
   $('#body-toggle').hide();
   $('#body-toggle').toggle(function() {
     $(this).html('- hide body');
-    $('#curlosaurus #body').show();
+    $('#curlosaurus #body').show('fast');
   }, function() {
     $(this).html('+ show body');
-    $('#curlosaurus #body').hide();
+    $('#curlosaurus #body').hide('fast');
   });
 
   $('#method').change(function() {
     var method = $(this).val();
     if ( method === 'get' || method === 'delete') {
-      $('#body-toggle, #body').hide();
+      $('#body-toggle').trigger('click');
+      $('#body-toggle').hide();
     } else {
       $('#body-toggle').show();
     }
