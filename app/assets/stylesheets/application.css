@@ -23,12 +23,14 @@ input {
   font-family: helvetica;
   font-size: 14pt;
   border: 1px solid #bbb;
+  padding: 4px;
 }
 
 textarea, select {
   font-family: helvetica;
   font-size: 11pt;
   border: 1px solid #bbb;
+  padding: 4px;
 }
 
 input#user, input#pass {
@@ -46,6 +48,7 @@ input#user, input#pass {
 }
 
 #curlosaurus #body-toggle {
+  line-height: 25px;
   cursor: pointer;
   float: right;
 }
@@ -87,7 +90,7 @@ input#user, input#pass {
 #result-holder {
   margin: 40px auto;
   width: 70%;
-  overflow-x: scroll;
+  overflow-x: auto;
   padding: 10px;
   background: #efefef;
 }
