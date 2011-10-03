@@ -25,11 +25,21 @@ $(document).ready(function() {
   });
 
   $('#body').hide();
+  $('#body-toggle').hide();
   $('#body-toggle').toggle(function() {
-    $(this).html('- show body');
+    $(this).html('- hide body');
     $('#curlosaurus #body').show();
   }, function() {
     $(this).html('+ show body');
     $('#curlosaurus #body').hide();
+  });
+
+  $('#method').change(function() {
+    var method = $(this).val();
+    if ( method === 'get' || method === 'delete') {
+      $('#body-toggle, #body').hide();
+    } else {
+      $('#body-toggle').show();
+    }
   });
 });
