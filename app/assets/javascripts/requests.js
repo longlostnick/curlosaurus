@@ -37,7 +37,12 @@ $(document).ready(function() {
   $('#method').change(function() {
     var method = $(this).val();
     if ( method === 'get' || method === 'delete') {
-      $('#body-toggle').trigger('click');
+
+      // toggle only if body is visible
+      if ($('#body').is(':visible')) {
+        $('#body-toggle').trigger('click');
+      }
+
       $('#body-toggle').hide();
     } else {
       $('#body-toggle').show();
