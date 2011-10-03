@@ -5,3 +5,58 @@
  *= require_self
  *= require_tree . 
 */
+
+body {
+  font-family: Georgia;
+}
+
+h1 {
+  text-align: center;
+  font-size: 45pt;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+}
+
+#logo a {
+  color: #000;
+  text-decoration: none;
+}
+
+#curlosaurus {
+  margin: 0 auto;
+  width: 500px;
+}
+
+#curlosaurus #body-toggle {
+  cursor: pointer;
+  float: right;
+}
+
+#curlosaurus #url {
+  width: 500px;
+}
+
+#curlosaurus #body {
+  width: 500px;
+  height: 100px;
+}
+
+#result-holder {
+  margin: 40px auto;
+  width: 60%;
+  overflow-x: scroll;
+  padding: 10px;
+  background: #efefef;
+}
+
+#result-holder h2 {
+  margin-top: 0;
+}
+
+#loader {
+  display: none;
+  vertical-align: text-top;
+  margin-top: 2px;
+}

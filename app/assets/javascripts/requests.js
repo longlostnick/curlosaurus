@@ -2,16 +2,15 @@ $(document).ready(function() {
   $('form#curlosaurus').submit(function(e) {
     e.preventDefault();
 
+    $('#loader').show();
+
     $.ajax({
       url: '/',
       type: 'post',
-      data: {
-        "url": $('form#curlosaurus #url').val(),
-        "method": $('form#curlosaurus #method').val(),
-        "body": $('form#curlosaurus #body').val()
-      },
+      data: $(this).serialize(),
       success: function(data) {
-        $('#result-holder').text(data);
+        $('#loader').hide();
+        $('#result-holder').html(data);
       }
     });
 
@@ -21,5 +20,14 @@ $(document).ready(function() {
   $('#auth-div').hide();
   $('#auth').click(function() {
     this.checked ? $('#auth-div').show() : $('#auth-div').hide() ;
+  });
+
+  $('#body').hide();
+  $('#body-toggle').toggle(function() {
+    $(this).html('- show body');
+    $('#curlosaurus #body').show();
+  }, function() {
+    $(this).html('+ show body');
+    $('#curlosaurus #body').hide();
   });
 });

@@ -1,4 +1,3 @@
-require 'json'
 require 'curb'
 
 class RequestsController < ApplicationController
@@ -7,33 +6,30 @@ class RequestsController < ApplicationController
   def create
     roar = Curl::Easy.new(params[:url])
 
+    if params[:auth] == '1'
+      roar.http_auth_types = :basic
+      roar.username = params[:user]
+      roar.password = params[:pass]
+    end
+
+    if params[:follow] == '1'
+      roar.follow_location = true
+    end
+
     method = params[:method]
 
     begin
-      if method == 'get'
-        roar.http_get
-      elsif method == 'post' || method == 'put' || method == 'delete'
+      if method == 'get' || method == 'delete'
+        roar.send("http_#{method}")
+      elsif method == 'post' || method == 'put'
         roar.send("http_#{method}", params[:body])
       end
 
-      render :text => roar.body_str
+      roar.perform
+
+      render :partial => 'result', :locals => { :result => roar }
     rescue => e
-      render :text => e
-    end
-  end
-
-  private
-
-  def add_auth(user, pass)
-    @auth = {:username => user, :password => pass }
-  end
-
-  def is_json(json)
-    begin
-      JSON.parse(json)
-      return true
-    rescue
-      return false
+      render :text => e.to_s
     end
   end
 end

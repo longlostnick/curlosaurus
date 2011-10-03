@@ -4,41 +4,37 @@
 
 <%= form_tag requests_path, :id => 'curlosaurus' do %>
   <p>
-    <%= label_tag :url, "Url:" %>
-    <%= text_field_tag :url, nil, :size => "50" %>
+    <%= text_field_tag :url %>
   </p>
 
   <p>
-    <%= label_tag :body, "Body:" %>
-    <%= text_area_tag :body, nil, :size => "45x10" %>
-  </p>
+    <div id="body-toggle">+ show body</div>
 
-  <p>
-    <%= label_tag :method, "Method:" %>
     <%= select_tag :method, %-<option value="get">GET</option><option value="post">POST</option><option value="put">PUT</option><option value="delete">DELETE</option>-.html_safe %>
+
+    <%= check_box_tag :follow %>
+    <%= label_tag :follow, "Follow Redirects" %>
   </p>
 
   <p>
-    <%= label_tag :auth, "Basic Auth:" %>
-    <%= check_box_tag :auth %>
+    <%= text_area_tag :body %>
   </p>
+
+  <p>
+    <%= check_box_tag :auth %>
+    <%= label_tag :auth, "Basic Auth" %>
 
   <div id="auth-div">
 
     <p>
-      <%= label_tag :user, "Username:" %>
       <%= text_field_tag :user, nil, :size => "30" %>
-    </p>
-
-    <p>
-      <%= label_tag :pass, "Password:" %>
-      <%= text_field_tag :pass, nil, :size => "30" %>
+      <%= password_field_tag :pass, nil, :size => "30" %>
     </p>
 
   </div>
 
   <p>
-    <%= submit_tag "Roar" %>
+  <%= submit_tag "Roar!", :id => "roar" %> <%= image_tag "ajax-loader.gif", :id => "loader" %>
   </p>
 <% end %>
 
