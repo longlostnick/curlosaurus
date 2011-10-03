@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  label_togglerizer('form#curlosaurus input[title]');
+
   $('form#curlosaurus').submit(function(e) {
     e.preventDefault();
 
