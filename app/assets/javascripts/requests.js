@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  label_togglerizer('form#curlosaurus input[title]');
+  label_togglerizer('form#curlosaurus input[title], form#curlosaurus textarea[title]');
 
   $('form#curlosaurus').submit(function(e) {
     e.preventDefault();
@@ -19,9 +19,9 @@ $(document).ready(function() {
     return false;
   });
 
-  $('#auth-div').hide();
+  $('#auth-block').hide();
   $('#auth').click(function() {
-    this.checked ? $('#auth-div').show() : $('#auth-div').hide() ;
+    this.checked ? $('#auth-block').show() : $('#auth-block').hide() ;
   });
 
   $('#body').hide();

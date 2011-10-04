@@ -62,8 +62,17 @@ input#user, input#pass {
   height: 100px;
 }
 
-#curlosaurus #roar {
+#curlosaurus #submit-block {
   float: right;
+  margin: 0;
+}
+
+#curlosaurus #submit-block #loader {
+  margin-right: 10px;
+  display: none;
+}
+
+#curlosaurus #roar {
   -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
   -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
   box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -88,7 +97,7 @@ input#user, input#pass {
 }
 
 #result-holder {
-  margin: 40px auto;
+  margin: 40px auto 20px auto;
   width: 70%;
   overflow-x: auto;
   padding: 10px;
@@ -99,10 +108,11 @@ input#user, input#pass {
   margin-top: 0;
 }
 
-#loader {
-  display: none;
-  vertical-align: text-top;
-  margin-top: 2px;
+#footer {
+  width: 70%;
+  text-align: right;
+  margin: 0 auto;
+  font-size: 10pt;
 }
 
 .blurred {

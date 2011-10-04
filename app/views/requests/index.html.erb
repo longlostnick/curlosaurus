@@ -17,24 +17,22 @@
   </p>
 
   <p>
-    <%= text_area_tag :body %>
+    <%= text_area_tag :body, nil, :title => 'body' %>
   </p>
 
   <p>
     <%= check_box_tag :auth %>
     <%= label_tag :auth, "Basic Auth" %>
+  </p>
 
-  <div id="auth-div">
+  <p id="submit-block">
+    <%= image_tag "ajax-loader.gif", :id => "loader" %>
+    <%= submit_tag "Roar!", :id => "roar" %>
+  </p>
 
-    <p>
-      <%= text_field_tag :user, nil, :title => "username" %>
-      <%= password_field_tag :pass, nil, :title => "password" %>
-    </p>
-
-  </div>
-
-  <p>
-  <%= submit_tag "Roar!", :id => "roar" %> <%= image_tag "ajax-loader.gif", :id => "loader" %>
+  <p id="auth-block">
+    <%= text_field_tag :user, nil, :title => "username" %>
+    <%= password_field_tag :pass, nil, :title => "password" %>
   </p>
 
   <div class="clear"></div>
