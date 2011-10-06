@@ -48,4 +48,8 @@ $(document).ready(function() {
       $('#body-toggle').show();
     }
   });
+
+  // fuck firefox
+  $('#method').trigger('change');
+  $('#auth').attr('checked', false);
 });

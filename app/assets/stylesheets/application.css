@@ -19,6 +19,10 @@ h1, h2, h3, h4, h5 {
   font-weight: normal;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 input {
   font-family: helvetica;
   font-size: 14pt;
@@ -62,12 +66,17 @@ input#user, input#pass {
   height: 100px;
 }
 
+#curlosaurus #auth-block {
+  margin-bottom: 0;
+}
+
 #curlosaurus #submit-block {
   float: right;
   margin: 0;
 }
 
 #curlosaurus #submit-block #loader {
+  vertical-align: text-top;
   margin-right: 10px;
   display: none;
 }
