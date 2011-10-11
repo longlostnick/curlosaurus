@@ -13,6 +13,11 @@ $(document).ready(function() {
       success: function(data) {
         $('#loader').hide();
         $('#result-holder').html(data);
+
+        // hide body if visible
+        if ($('#body').is(':visible')) {
+          $('#body-toggle').trigger('click');
+        }
       }
     });
 
@@ -45,6 +50,12 @@ $(document).ready(function() {
 
       $('#body-toggle').hide();
     } else {
+
+      // toggle only if already hidden
+      if ($('#body').is(':hidden')) {
+        $('#body-toggle').trigger('click');
+      }
+
       $('#body-toggle').show();
     }
   });
