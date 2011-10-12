@@ -86,7 +86,7 @@ input#user, input#pass {
 }
 
 #curlosaurus #roar {
-  @include fancy-button(0);
+  @include fancy-button();
 }
 
 #curlosaurus #roar.disabled {
