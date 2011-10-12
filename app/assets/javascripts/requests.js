@@ -6,7 +6,7 @@ $(document).ready(function() {
 
     $('#loader').show();
 
-    $('#roar').attr('disabled', true);
+    $('#roar').attr('disabled', true).addClass('disabled');
 
     $.ajax({
       url: '/',
@@ -22,7 +22,7 @@ $(document).ready(function() {
         }
 
         // ok people can spam the button again now
-        $('#roar').attr('disabled', false);
+        $('#roar').attr('disabled', false).removeClass('disabled');
       }
     });
 

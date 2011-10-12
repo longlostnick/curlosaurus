@@ -1,0 +1,37 @@
+@mixin fancy-button($lighten:0, $disabled:false) {
+  $lower:lighten(#ededed, $lighten);
+  $upper:lighten(#dfdfdf, $lighten);
+
+  -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  box-shadow:inset 0px 1px 0px 0px #ffffff;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, $lower), color-stop(1, $upper) );
+  background:-moz-linear-gradient( center top, $lower 5%, $upper 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$lower', endColorstr='$upper');
+  background-color: $lower;
+  border:1px solid #dcdcdc;
+  color:lighten(#000000, $lighten*$lighten*2);
+  font-family:Georgia;
+  padding:5px 14px;
+  text-decoration:none;
+  text-shadow:1px 1px 0px #ffffff;
+
+  &:active {
+    @if $disabled == false {
+      position:relative;
+      top:1px;
+    } @else {
+      position:relative;
+      top:0px;
+    }
+  }
+
+  @if $disabled == false {
+    &:hover {
+      background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, $upper), color-stop(1, $lower) );
+      background:-moz-linear-gradient( center top, $upper 5%, $lower 100% );
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$upper', endColorstr='$lower');
+      background-color: $upper;
+    }
+  }
+}
