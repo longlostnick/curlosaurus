@@ -6,6 +6,8 @@ $(document).ready(function() {
 
     $('#loader').show();
 
+    $('#roar').attr('disabled', true);
+
     $.ajax({
       url: '/',
       type: 'post',
@@ -18,6 +20,9 @@ $(document).ready(function() {
         if ($('#body').is(':visible')) {
           $('#body-toggle').trigger('click');
         }
+
+        // ok people can spam the button again now
+        $('#roar').attr('disabled', false);
       }
     });
 
