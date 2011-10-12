@@ -1,5 +1,6 @@
 travel back in time 64 million years while making http requests. it doesn't get any better than that!
 
 i'd like to add some better styling soon, and support for individual post params.
+oh also can't forget about response syntax highlighting, and tabs between header/body.
 
 https://github.com/ifightcrime/curlosaurus
