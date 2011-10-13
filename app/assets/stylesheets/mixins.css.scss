@@ -2,6 +2,7 @@
   $lower:lighten(#ededed, $lighten);
   $upper:lighten(#dfdfdf, $lighten);
 
+  cursor: pointer;
   -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
   -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
   box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -18,20 +19,15 @@
 
   &:active {
     @if $disabled == false {
+      background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, $upper), color-stop(1, $lower) );
+      background:-moz-linear-gradient( center top, $upper 5%, $lower 100% );
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$upper', endColorstr='$lower');
+      background-color: $upper;
       position:relative;
       top:1px;
     } @else {
       position:relative;
       top:0px;
-    }
-  }
-
-  @if $disabled == false {
-    &:hover {
-      background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, $upper), color-stop(1, $lower) );
-      background:-moz-linear-gradient( center top, $upper 5%, $lower 100% );
-      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$upper', endColorstr='$lower');
-      background-color: $upper;
     }
   }
 }
