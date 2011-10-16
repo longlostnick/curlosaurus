@@ -8,7 +8,7 @@
   box-shadow:inset 0px 1px 0px 0px #ffffff;
   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, $lower), color-stop(1, $upper) );
   background:-moz-linear-gradient( center top, $lower 5%, $upper 100% );
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$lower', endColorstr='$upper');
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$lower}', endColorstr='#{$upper}');
   background-color: $lower;
   border:1px solid #dcdcdc;
   color:lighten(#000000, $lighten*$lighten*2);
@@ -21,7 +21,7 @@
     @if $disabled == false {
       background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, $upper), color-stop(1, $lower) );
       background:-moz-linear-gradient( center top, $upper 5%, $lower 100% );
-      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$upper', endColorstr='$lower');
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$upper}', endColorstr='#{$lower}');
       background-color: $upper;
       position:relative;
       top:1px;
