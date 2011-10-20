@@ -2,7 +2,7 @@
   <%= javascript_include_tag :requests %>
 <% end %>
 
-<%= form_tag requests_path, :id => 'curlosaurus' do %>
+<%= form_tag requests_path, :id => 'curlosaurus', :autocomplete => 'off' do %>
   <p>
   <%= text_field_tag :url, nil, :title => "url" %>
   </p>
