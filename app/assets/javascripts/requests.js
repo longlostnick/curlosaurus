@@ -18,7 +18,8 @@ $(document).ready(function() {
       success: function(data) {
 
         if (!data.success) {
-          $('#result-holder #header').fadeIn().html(data.message);
+          $('#result-holder #header').hide().fadeIn().html(data.message);
+          $('#result-holder #body').hide();
         } else {
           $('#result-holder #header').hide().fadeIn().html('<pre>' + data.header + '</pre>');
           $('#result-holder #body').hide().fadeIn().html('<pre>' + data.body + '</pre>').attr('class', 'CodeRay');
