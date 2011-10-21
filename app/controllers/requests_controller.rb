@@ -1,4 +1,6 @@
 require 'curb'
+require 'coderay'
+require 'yajl'
 
 class RequestsController < ApplicationController
 
@@ -27,9 +29,40 @@ class RequestsController < ApplicationController
 
       roar.perform
 
-      render :partial => 'result', :locals => { :result => roar }
+      body = format_body(roar.content_type, roar.body_str)
+
+      render :json => {
+        :success => true,
+        :header => roar.header_str,
+        :body   => body
+      }
     rescue => e
-      render :text => e.to_s
+      render :json => {
+        :success => false,
+        :message => e.to_s
+      }
     end
+  end
+
+  private
+  
+  #TODO: maybe move these to a new file?
+
+  def format_body(type, body)
+    type.to_s
+
+    if type.include? 'json'
+      parsed = Yajl::Parser.parse(body)
+      json = Yajl::Encoder.new(:pretty => true).encode(parsed)
+      colorize :js => json
+    elsif type.include? 'html'
+      colorize :html => body
+    else
+      body.inspect
+    end
+  end
+
+  def colorize(hash = {})
+    CodeRay.scan(hash.values.first, hash.keys.first).html
   end
 end

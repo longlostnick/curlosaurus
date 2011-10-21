@@ -8,7 +8,9 @@ gem 'rails', '3.1.0'
 gem 'sqlite3'
 gem 'therubyracer'
 gem 'curb'
+gem 'yajl-ruby'
 gem 'jquery-rails'
+gem 'coderay'
 
 # Gems used only for assets and not required
 # in production environments by default.

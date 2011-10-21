@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+  $('#fader').fadeOut('slow');
+
   label_togglerizer('form#curlosaurus input[title], form#curlosaurus textarea[title]');
 
   $('form#curlosaurus').submit(function(e) {
@@ -13,8 +16,15 @@ $(document).ready(function() {
       type: 'post',
       data: $(this).serialize(),
       success: function(data) {
+
+        if (!data.success) {
+          $('#result-holder #header').fadeIn().html(data.message);
+        } else {
+          $('#result-holder #header').hide().fadeIn().html('<pre>' + data.header + '</pre>');
+          $('#result-holder #body').hide().fadeIn().html('<pre>' + data.body + '</pre>').attr('class', 'CodeRay');
+        }
+
         $('#loader').hide();
-        $('#result-holder').html(data);
 
         // hide body if visible
         if ($('#body').is(':visible')) {

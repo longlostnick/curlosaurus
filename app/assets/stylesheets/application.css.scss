@@ -22,6 +22,10 @@ h1, h2, h3, h4, h5 {
   font-weight: normal;
 }
 
+pre {
+  margin: 0;
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -43,6 +47,18 @@ textarea, select {
 input#user, input#pass {
   margin-right: 10px;
   width: 200px;
+}
+
+#fader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 13;
+  background: #fff;
 }
 
 #logo a {
@@ -94,15 +110,19 @@ input#user, input#pass {
 }
 
 #result-holder {
+  overflow-x: auto;
   margin: 40px auto 20px auto;
   width: 70%;
-  overflow-x: auto;
-  padding: 10px;
   background: #efefef;
+  padding: 15px;
 }
 
-#result-holder h2 {
-  margin-top: 0;
+#result-holder div {
+  display: none;
+}
+
+#result-holder #body {
+  margin-top: 25px;
 }
 
 #footer {
@@ -118,4 +138,11 @@ input#user, input#pass {
 
 .clear {
   clear: both;
+}
+
+/* CodeRay overrides */
+
+.CodeRay {
+  background: none !important;
+  border: none !important;
 }
