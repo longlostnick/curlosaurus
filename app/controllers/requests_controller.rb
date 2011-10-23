@@ -10,8 +10,7 @@ class RequestsController < ApplicationController
 
     if params[:auth] == '1'
       roar.http_auth_types = :basic
-      roar.username = params[:user]
-      roar.password = params[:pass]
+      roar.userpwd = "#{params[:user]}:#{params[:pass]}"
     end
 
     if params[:follow] == '1'
