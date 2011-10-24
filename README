@@ -2,13 +2,13 @@ travel back in time 64 million years while making http requests. it doesn't get 
 
 TODO:
 -remove sqlite for now... will probably use mongo anyway
--request timeout
 -basic form validation
 -select box styling
 -support for individual post params
 -body/header response tabs
--inner shaddow gradients inside text inputs
+-inner shadow gradients inside text inputs
 -other pages, visited link color?... nah
 -expand path into textarea when focused
 
-https://github.com/ifightcrime/curlosaurus
+http://curlosaur.us
+http://github.com/ifightcrime/curlosaurus
