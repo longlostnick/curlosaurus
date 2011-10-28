@@ -71,8 +71,26 @@ input#user, input#pass {
   width: 60%;
 }
 
+#curlosaurus div {
+  margin: 15px 0;
+}
+
 #curlosaurus #body-toggle {
   line-height: 25px;
+  cursor: pointer;
+  float: right;
+}
+
+#curlosaurus #header-block input.header-key {
+  margin-right: 10px;
+  width: 25%;
+}
+
+#curlosaurus #header-block input.header-value {
+  width: 40%;
+}
+
+#curlosaurus #add-header {
   cursor: pointer;
   float: right;
 }
@@ -86,13 +104,19 @@ input#user, input#pass {
   height: 100px;
 }
 
+#curlosaurus #toggle-auth {
+  cursor: pointer;
+}
+
 #curlosaurus #auth-block {
-  margin-bottom: 0;
+  margin: 0;
+  height: 40px;
 }
 
 #curlosaurus #submit-block {
   float: right;
   margin: 0;
+  height: 40px;
 }
 
 #curlosaurus #submit-block #loader {
@@ -102,6 +126,7 @@ input#user, input#pass {
 }
 
 #curlosaurus #roar {
+  clear: both;
   @include fancy-button();
 }
 
@@ -111,7 +136,7 @@ input#user, input#pass {
 
 #result-holder {
   overflow-x: auto;
-  margin: 40px auto 20px auto;
+  margin: 30px auto 20px auto;
   width: 70%;
   background: #efefef;
   padding: 15px;

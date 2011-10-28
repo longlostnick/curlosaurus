@@ -4,37 +4,42 @@
 <% end %>
 
 <%= form_tag requests_path, :id => 'curlosaurus', :autocomplete => 'off' do %>
-  <p>
-  <%= text_field_tag :url, nil, :title => "url" %>
-  </p>
 
-  <p>
-    <div id="body-toggle">+ show body</div>
+  <div>
+  <%= text_field_tag :url, nil, :title => "url" %>
+  </div>
+
+  <div>
+    <span id="body-toggle">+ show body</span>
 
     <%= select_tag :method, %-<option value="get">GET</option><option value="post">POST</option><option value="put">PUT</option><option value="delete">DELETE</option>-.html_safe %>
 
     <%= check_box_tag :follow %>
     <%= label_tag :follow, "Follow Redirects" %>
-  </p>
+  </div>
 
-  <p>
+  <div id="body-block">
     <%= text_area_tag :body, nil, :title => 'body' %>
-  </p>
+  </div>
 
-  <p>
+  <div id="header-block">
+    <span id="add-header">+ add header</span>
+  </div>
+
+  <div>
     <%= check_box_tag :auth %>
     <%= label_tag :auth, "Basic Auth" %>
-  </p>
+  </div>
 
-  <p id="submit-block">
+  <div id="submit-block">
     <%= image_tag "ajax-loader.gif", :id => "loader" %>
     <%= submit_tag "Roar", :id => "roar" %>
-  </p>
+  </div>
 
-  <p id="auth-block">
+  <div id="auth-block">
     <%= text_field_tag :user, nil, :title => "username" %>
     <%= password_field_tag :pass, nil, :title => "password" %>
-  </p>
+  </div>
 
   <div class="clear"></div>
 

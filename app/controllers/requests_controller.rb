@@ -6,7 +6,9 @@ class RequestsController < ApplicationController
 
   # ajax request initiated by form
   def create
-    roar = Curl::Easy.new(params[:url])
+    roar = Curl::Easy.new(params[:url]) do |curl|
+      curl.headers["Referer"] = "nick.dev.fbsdata.com"
+    end
 
     if params[:auth] == '1'
       roar.http_auth_types = :basic
@@ -25,8 +27,6 @@ class RequestsController < ApplicationController
       elsif method == 'post' || method == 'put'
         roar.send("http_#{method}", params[:body])
       end
-
-      roar.perform
 
       body = format_body(roar.content_type, roar.body_str)
 
