@@ -26,8 +26,6 @@ class RequestsController < ApplicationController
         roar.send("http_#{method}", params[:body])
       end
 
-      roar.perform
-
       body = format_body(roar.content_type, roar.body_str)
 
       render :json => {
