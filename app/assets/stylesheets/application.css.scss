@@ -61,13 +61,17 @@ input#user, input#pass {
   background: #fff;
 }
 
+h1#logo {
+  margin: 50px 0 30px 0;
+}
+
 #logo a {
   color: #000;
   text-decoration: none;
 }
 
 #curlosaurus {
-  margin: 0 auto;
+  margin: 0 auto 30px auto;
   width: 60%;
 }
 
@@ -81,13 +85,24 @@ input#user, input#pass {
   float: right;
 }
 
+#curlosaurus #header-block .header-row {
+  width: 512px;
+}
+
 #curlosaurus #header-block input.header-key {
-  margin-right: 10px;
-  width: 25%;
+  margin: 0 10px 0 0;
+  width: 200px;
 }
 
 #curlosaurus #header-block input.header-value {
-  width: 40%;
+  margin: 0;
+  width: 250px;
+}
+
+#curlosaurus #header-block a.remove-header {
+  float: right;
+  padding-top: 6px;
+  margin-left: 5px;
 }
 
 #curlosaurus #add-header {
@@ -162,6 +177,7 @@ input#user, input#pass {
 }
 
 .clear {
+  margin: 0 !important;
   clear: both;
 }
 
