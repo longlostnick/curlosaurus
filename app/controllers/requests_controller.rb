@@ -6,8 +6,13 @@ class RequestsController < ApplicationController
 
   # ajax request initiated by form
   def create
-    roar = Curl::Easy.new(params[:url]) do |curl|
-      curl.headers["Referer"] = "nick.dev.fbsdata.com"
+    roar = Curl::Easy.new(params[:url])
+
+    if params[:header_keys] && params[:header_values]
+      keys, values = Array(params[:header_keys]), Array(params[:header_values])
+      keys.each_with_index do |key, index|
+        roar.headers[key] = values[index]
+      end
     end
 
     if params[:auth] == '1'
