@@ -61,18 +61,51 @@ input#user, input#pass {
   background: #fff;
 }
 
+h1#logo {
+  margin: 50px 0 30px 0;
+}
+
 #logo a {
   color: #000;
   text-decoration: none;
 }
 
 #curlosaurus {
-  margin: 0 auto;
+  margin: 0 auto 30px auto;
   width: 60%;
+}
+
+#curlosaurus div {
+  margin: 15px 0;
 }
 
 #curlosaurus #body-toggle {
   line-height: 25px;
+  cursor: pointer;
+  float: right;
+}
+
+#curlosaurus #header-block .header-row {
+  width: 512px;
+}
+
+#curlosaurus #header-block input.header-key {
+  margin: 0 10px 0 0;
+  width: 200px;
+}
+
+#curlosaurus #header-block input.header-value {
+  margin: 0;
+  width: 250px;
+}
+
+#curlosaurus #header-block a.remove-header {
+  float: right;
+  padding-top: 6px;
+  margin-left: 5px;
+}
+
+#curlosaurus #add-header {
   cursor: pointer;
   float: right;
 }
@@ -86,13 +119,19 @@ input#user, input#pass {
   height: 100px;
 }
 
+#curlosaurus #toggle-auth {
+  cursor: pointer;
+}
+
 #curlosaurus #auth-block {
-  margin-bottom: 0;
+  margin: 0;
+  height: 40px;
 }
 
 #curlosaurus #submit-block {
   float: right;
   margin: 0;
+  height: 40px;
 }
 
 #curlosaurus #submit-block #loader {
@@ -102,6 +141,7 @@ input#user, input#pass {
 }
 
 #curlosaurus #roar {
+  clear: both;
   @include fancy-button();
 }
 
@@ -111,7 +151,7 @@ input#user, input#pass {
 
 #result-holder {
   overflow-x: auto;
-  margin: 40px auto 20px auto;
+  margin: 30px auto 20px auto;
   width: 70%;
   background: #efefef;
   padding: 15px;
@@ -137,6 +177,7 @@ input#user, input#pass {
 }
 
 .clear {
+  margin: 0 !important;
   clear: both;
 }
 

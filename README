@@ -2,15 +2,15 @@ travel back in time 64 million years while making http requests. it doesn't get 
 
 TODO:
 -favicon!
--remove sqlite for now... will probably use mongo anyway
 -basic form validation
 -select box styling
+-write tests... meh
+-request timeout?
+-basic form validation
 -support for individual post params
--body/header response tabs
--inner shadow gradients inside text inputs
--other pages, visited link color?... nah
+-inner shaddow gradients inside text inputs
 -expand path into textarea when focused
--write tests.
+-work with browser autocomplete
 
 http://curlosaur.us
 http://github.com/ifightcrime/curlosaurus

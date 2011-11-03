@@ -76,6 +76,25 @@ $(document).ready(function() {
     }
   });
 
+  $('#add-header').click(function() {
+    var count = $('.header-row').length;
+    var header_row = '';
+
+    header_row += '<div class="header-row">';
+    header_row += '<a href="#" class="remove-header"><%= image_tag 'remove.png' %></a>';
+    header_row += '<input type="text" name="header_keys[]" id="header-key-' + count + '" class="header-key" title="key" /> ';
+    header_row += '<input type="text" name="header_values[]" id="header-value-' + count + '" class="header-value" title="value" /> ';
+    header_row += '</div>';
+
+    $(this).parent('div').append(header_row);
+
+    label_togglerizer('#header-key-' + count + ', #header-value-' + count);
+
+    $('a.remove-header').click(function() {
+      $(this).parent('div.header-row').remove();
+    });
+  });
+
   // fuck firefox
   $('#method').trigger('change');
   $('#auth').attr('checked', false);
